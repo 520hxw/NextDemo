@@ -1,3 +1,10 @@
+/*
+ * @Author: Mina
+ * @Date: 2024-02-23 22:22:25
+ * @LastEditors: Mina
+ * @LastEditTime: 2024-05-09 18:29:16
+ * @Description: 
+ */
 import {
   BanknotesIcon,
   ClockIcon,
@@ -5,6 +12,7 @@ import {
   InboxIcon,
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
+import { fetchCardData } from '@/app/lib/data';
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -14,6 +22,12 @@ const iconMap = {
 };
 
 export default async function CardWrapper() {
+  const {
+    numberOfInvoices,
+    numberOfCustomers,
+    totalPaidInvoices,
+    totalPendingInvoices,
+  } = await fetchCardData();
   return (
     <>
       {/* NOTE: comment in this code when you get to this point in the course */}
